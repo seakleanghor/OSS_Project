@@ -143,9 +143,23 @@ class Game:
     def __init__(self):
         pygame.init()
         pygame.display.set_caption(config.title)
-        self.screen = pygame.display.set_mode(config.display_dimension)
+        
+        # Default starting difficulty
+        self.difficulty = 'easy'
+        settings = config.difficulties[self.difficulty]
+        
+        # Set dynamic dimensions
+        self.cols = settings['cols']
+        self.rows = settings['rows']
+        self.num_mines = settings['num_mines']
+        
+        # Calculate screen size based on cols/rows
+        width = config.margin_left + config.margin_right + self.cols * config.cell_size
+        height = config.margin_top + config.margin_bottom + self.rows * config.cell_size
+        self.screen = pygame.display.set_mode((width, height))
+        
         self.clock = pygame.time.Clock()
-        self.board = Board(config.cols, config.rows, config.num_mines)
+        self.board = Board(self.cols, self.rows, self.num_mines)
         self.renderer = Renderer(self.screen, self.board)
         self.input = InputController(self)
         self.highlight_targets = set()
@@ -154,9 +168,23 @@ class Game:
         self.start_ticks_ms = 0
         self.end_ticks_ms = 0
 
-    def reset(self):
-        """Reset the game state and start a new board."""
-        self.board = Board(config.cols, config.rows, config.num_mines)
+    def reset(self, diff_name=None):
+        """Reset the game state and start a new board with optional new difficulty."""
+        if diff_name:
+            self.difficulty = diff_name
+            settings = config.difficulties[self.difficulty]
+            self.cols = settings['cols']
+            self.rows = settings['rows']
+            self.num_mines = settings['num_mines']
+            
+            # Update screen size for new grid
+            width = config.margin_left + config.margin_right + self.cols * config.cell_size
+            height = config.margin_top + config.margin_bottom + self.rows * config.cell_size
+            self.screen = pygame.display.set_mode((width, height))
+            # Update renderer screen reference
+            self.renderer.screen = self.screen
+
+        self.board = Board(self.cols, self.rows, self.num_mines)
         self.renderer.board = self.board
         self.highlight_targets.clear()
         self.highlight_until_ms = 0
@@ -203,7 +231,7 @@ class Game:
         self.renderer.draw_result_overlay(self._result_text())
         pygame.display.flip()
 
-    def run_step(self) -> bool:
+   def run_step(self) -> bool:
         """Process inputs, update time, draw, and tick the clock once."""
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -211,8 +239,17 @@ class Game:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_r:
                     self.reset()
+                # --- Difficulty Keys ---
+                elif event.key == pygame.K_1:
+                    self.reset('easy')
+                elif event.key == pygame.K_2:
+                    self.reset('medium')
+                elif event.key == pygame.K_3:
+                    self.reset('hard')
+                    
             if event.type == pygame.MOUSEBUTTONDOWN:
                 self.input.handle_mouse(event.pos, event.button)
+        
         if (self.board.game_over or self.board.win) and self.started and not self.end_ticks_ms:
             self.end_ticks_ms = pygame.time.get_ticks()
         self.draw()

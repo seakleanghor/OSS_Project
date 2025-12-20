@@ -81,3 +81,13 @@ result_overlay_alpha = 120
 # Misc
 title = "Minesweeper"
 
+# 난이도 설정 (가로, 세로, 지뢰 수)
+difficulties = {
+    'easy': {'cols': 9, 'rows': 9, 'num_mines': 10},
+    'medium': {'cols': 16, 'rows': 16, 'num_mines': 40},
+    'hard': {'cols': 30, 'rows': 16, 'num_mines': 99}
+}
+
+# 기본 난이도 설정
+current_difficulty = 'easy'
+
