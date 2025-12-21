@@ -239,6 +239,10 @@ class Game:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_r:
                     self.reset()
+                elif event.key == pygame.K_h:
+                    hint_pos = self.board.get_hint()
+                    if hint_pos:
+                        self.board.reveal(hint_pos[0], hint_pos[1])
                 # --- Difficulty Keys ---
                 elif event.key == pygame.K_1:
                     self.reset('easy')
