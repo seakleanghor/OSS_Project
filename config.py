@@ -51,14 +51,14 @@ color_result = (242, 242, 0)
 
 # Number colors 1~8
 number_colors = {
-    1: (25, 118, 210),   # blue
-    2: (56, 142, 60),    # green
-    3: (211, 47, 47),    # red
-    4: (123, 31, 162),   # purple
-    5: (255, 143, 0),    # orange
-    6: (0, 151, 167),    # cyan
-    7: (85, 85, 85),     # gray
-    8: (0, 0, 0),        # black
+   1: (0, 0, 255),      # 파란색 (Blue)
+    2: (0, 128, 0),     # 초록색 (Green)
+    3: (255, 0, 0),     # 빨간색 (Red)
+    4: (0, 0, 128),     # 남색 (Dark Blue)
+    5: (128, 0, 0),     # 갈색 (Maroon)
+    6: (0, 128, 128),   # 청록색 (Teal)
+    7: (0, 0, 0),       # 검정색 (Black)
+    8: (128, 128, 128)  # 회색 (Gray)
 }
 
 # Text / UI
@@ -80,4 +80,14 @@ result_overlay_alpha = 120
 
 # Misc
 title = "Minesweeper"
+
+# 난이도 설정 (가로, 세로, 지뢰 수)
+difficulties = {
+    'easy': {'cols': 9, 'rows': 9, 'num_mines': 10},
+    'medium': {'cols': 16, 'rows': 16, 'num_mines': 40},
+    'hard': {'cols': 30, 'rows': 16, 'num_mines': 99}
+}
+
+# 기본 난이도 설정
+current_difficulty = 'easy'
 
