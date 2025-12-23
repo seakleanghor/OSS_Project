@@ -19,8 +19,7 @@ instructor’s guidance.
 📸 Screenshot:  
 ![Number Color Feature]
 
-<img width="694" height="781" alt="image" src="https://github.com/user-attachments/assets/124f56bc-ce65-4099-bcb7-486696422d83" />
-
+<img width="416" height="507" alt="image" src="https://github.com/user-attachments/assets/86ca5ccd-d0b6-4598-a233-1aa60597ddc0" />
 
 ---
 
@@ -33,25 +32,26 @@ instructor’s guidance.
 
 Easy Level 
 
-<img width="412" height="497" alt="image" src="https://github.com/user-attachments/assets/84a55482-a7f4-43cc-8080-df85bfadba03" />
+<img width="415" height="503" alt="image" src="https://github.com/user-attachments/assets/8b379670-3cec-4252-9553-e90d412b98ee" />
 
 Meduim Level
 
-<img width="693" height="783" alt="image" src="https://github.com/user-attachments/assets/5527dc64-4f37-4008-8af7-5f1a5227e635" />
+<img width="705" height="787" alt="image" src="https://github.com/user-attachments/assets/2bcb120d-0195-4194-be86-e57c7453b2e3" />
 
 Hard Level
 
-<img width="1259" height="786" alt="image" src="https://github.com/user-attachments/assets/79781830-b100-4160-a849-ad59e5b5a757" />
-
+<img width="1264" height="788" alt="image" src="https://github.com/user-attachments/assets/a0c5c653-098d-4bd3-894f-a1b5b0e914f6" />
 
 ---
 
 ### Issue #3 – Feature Hint Feature
-- Reveals one safe tile when the hint button is used.
+- Reveals one safe tile when the hint button(hit on h key) is used.
 - Helps players progress without losing the game.
 
 📸 Screenshot:  
-![Hint Feature](screenshots/issue4_hint.png)
+![Hint Feature]
+
+<img width="418" height="505" alt="image" src="https://github.com/user-attachments/assets/362bdc61-9fc3-46d8-8f52-b96461187254" />
 
 ---
 
@@ -60,7 +60,9 @@ Hard Level
 - High score is shown after game completion.
   
 📸 Screenshot:  
-![High Score Feature](screenshots/issue5_highscore.png)
+![High Score Feature]
+
+<img width="420" height="504" alt="image" src="https://github.com/user-attachments/assets/d66099e9-9c7d-43ad-8b7d-4b73b5f88364" />
 
 ---
 
@@ -71,8 +73,7 @@ Hard Level
 📸 Screenshot:  
 ![Timer Feature]
 
-
-<img width="690" height="776" alt="image" src="https://github.com/user-attachments/assets/e4117b65-093a-4215-86e5-1608505d1a88" />
+<img width="417" height="501" alt="image" src="https://github.com/user-attachments/assets/c3f97152-2ac2-4dcd-a2e3-5e28f8162f61" />
 
 ---
 
