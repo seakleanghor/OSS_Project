@@ -29,7 +29,20 @@ instructor’s guidance.
 - Game board size and mine count change accordingly.
 
 📸 Screenshot:  
-![Difficulty Feature](screenshots/issue2_difficulty.png)
+![Difficulty Feature]
+
+Easy Level 
+
+<img width="412" height="497" alt="image" src="https://github.com/user-attachments/assets/84a55482-a7f4-43cc-8080-df85bfadba03" />
+
+Meduim Level
+
+<img width="693" height="783" alt="image" src="https://github.com/user-attachments/assets/5527dc64-4f37-4008-8af7-5f1a5227e635" />
+
+Hard Level
+
+<img width="1259" height="786" alt="image" src="https://github.com/user-attachments/assets/79781830-b100-4160-a849-ad59e5b5a757" />
+
 
 ---
 
