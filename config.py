@@ -1,23 +1,11 @@
 """
 Global configuration for the pygame Minesweeper game.
-
-This module centralizes all tunable settings used by both the logic layer
-(only grid sizes and counts) and the presentation layer (colors, fonts,
-layout metrics). Keeping these in one place helps tweak gameplay and visuals
-without touching logic or rendering code.
-
-Groups:
-- Grid and display: board dimensions, cell size, margins, derived window size
-- Colors: palette for cells, numbers, flags, overlays
-- Text/UI: font sizes for body, header, and result
-- Input: mouse button mappings
-- Behavior: highlight duration, overlay alpha
 """
 
 # Display settings
 fps = 60
 
-# Grid settings
+# Grid settings (Default)
 cols = 16
 rows = 16
 num_mines = 40
@@ -29,11 +17,9 @@ margin_top = 60
 margin_right = 20
 margin_bottom = 20
 
-# Derived display dimension
+# Derived display dimension (Calculated dynamically in run.py, but defined here as default)
 width = margin_left + cols * cell_size + margin_right
 height = margin_top + rows * cell_size + margin_bottom
-
-display_dimension = (width, height)
 
 # Colors
 color_bg = (24, 26, 27)
@@ -43,22 +29,21 @@ color_cell_revealed = (225, 228, 232)
 color_cell_mine = (220, 0, 0)
 color_flag = (255, 215, 0)
 color_text = (20, 20, 20)
-color_text_inv = (240, 240, 240)
 color_header_text = (240, 240, 240)
 color_header = (32, 34, 36)
 color_highlight = (70, 130, 180)
 color_result = (242, 242, 0)
 
-# Number colors 1~8
+# Number colors for adjacent mines
 number_colors = {
-    1: (25, 118, 210),   # blue
-    2: (56, 142, 60),    # green
-    3: (211, 47, 47),    # red
-    4: (123, 31, 162),   # purple
-    5: (255, 143, 0),    # orange
-    6: (0, 151, 167),    # cyan
-    7: (85, 85, 85),     # gray
-    8: (0, 0, 0),        # black
+    1: (0, 0, 255),      # Blue
+    2: (0, 128, 0),     # Green
+    3: (255, 0, 0),     # Red
+    4: (0, 0, 128),     # Navy
+    5: (128, 0, 0),     # Maroon
+    6: (0, 128, 128),   # Teal
+    7: (0, 0, 0),       # Black
+    8: (128, 128, 128)  # Gray
 }
 
 # Text / UI
@@ -72,12 +57,18 @@ mouse_left = 1
 mouse_middle = 2
 mouse_right = 3
 
-# Highlight behavior (milliseconds)
+# Highlight behavior
 highlight_duration_ms = 600
-
-# Overlay alpha for result background (0~255)
 result_overlay_alpha = 120
 
-# Misc
+# Game Info
 title = "Minesweeper"
 
+# --- CRITICAL: Difficulty Settings (Fixes the AttributeError) ---
+difficulties = {
+    'easy': {'cols': 9, 'rows': 9, 'num_mines': 10},
+    'medium': {'cols': 16, 'rows': 16, 'num_mines': 40},
+    'hard': {'cols': 30, 'rows': 16, 'num_mines': 99}
+}
+
+current_difficulty = 'easy'
