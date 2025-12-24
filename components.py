@@ -162,3 +162,19 @@ class Board:
             for cell in self.cells:
                 if not cell.state.is_revealed and not cell.state.is_mine:
                     cell.state.is_revealed = True
+
+def get_hint(self) -> tuple[int, int] | None:
+        """
+        Logic for Issue #3:
+        Finds all cells that are NOT mines and NOT yet revealed.
+        Returns a random coordinate (col, row) or None if no safe cells are left.
+        """
+        safe_unrevealed = [
+            (c, r) for r in range(self.rows) for c in range(self.cols)
+            if not self.cells[self.index(c, r)].state.is_mine and 
+               not self.cells[self.index(c, r)].state.is_revealed
+        ]
+        
+        if safe_unrevealed:
+            return random.choice(safe_unrevealed)
+        return None
